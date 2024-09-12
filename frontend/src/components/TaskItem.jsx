@@ -61,7 +61,7 @@ export default ({ task, refreshTasks }) => {
     <>
       <div
         className={`p-4 rounded shadow-md flex justify-between items-center 
-    ${task.completed ? "bg-green-500" : "bg-white dark:bg-gray-200"}`}
+    ${task.completed ? "bg-green-700" : "bg-white dark:bg-gray-200"}`}
       >
         <div className="flex space-x-4 items-center">
           {task.completed ? (
