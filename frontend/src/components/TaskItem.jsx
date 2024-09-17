@@ -1,29 +1,29 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { FiCheckCircle, FiCircle } from "react-icons/fi";
-import {
-  FcMediumPriority,
-  FcLowPriority,
-  FcHighPriority,
-} from "react-icons/fc";
-import {
-  FaSuitcase,
-  FaQuestion,
-  FaTrash,
-} from "react-icons/fa6";
-import { FaEdit, FaHome } from "react-icons/fa";
-import { updateTask, deleteTask } from "../services/taskService";
+import { FaEdit, FaTrash } from "react-icons/fa";
+import { PriorityIcon, CategoryIcon } from "../components/TaskIcons";
 import TaskEditModal from "./TaskEditModal";
+import ConfirmDeleteModal from "./ConfirmDeleteModal"; 
+import AuthContext from "../contexts/AuthContext";
+import { updateTask, deleteTask } from "../services/taskService";
 
 export default ({ task, refreshTasks }) => {
+  const { user } = useContext(AuthContext);
+
   const [isEditing, setIsEditing] = useState(false);
+  const [isDeleteConfirmOpen, setIsDeleteConfirmOpen] = useState(false);
 
   const toggleCompletion = async () => {
-    await updateTask(task.id, { ...task, completed: !task.completed });
+    await updateTask(
+      task.id,
+      { ...task, completed: !task.completed },
+      user.token
+    );
     refreshTasks();
   };
 
   const handleDelete = async () => {
-    await deleteTask(task.id);
+    await deleteTask(task.id, user.token);
     refreshTasks();
   };
 
@@ -31,37 +31,19 @@ export default ({ task, refreshTasks }) => {
     setIsEditing(false);
   };
 
-  const renderPriorityIcon = () => {
-    switch (task.priority) {
-      case "LOW":
-        return <FcLowPriority />;
-      case "MEDIUM":
-        return <FcMediumPriority />;
-      case "HIGH":
-        return <FcHighPriority />;
-      default:
-        return null;
-    }
+  const openDeleteConfirmModal = () => {
+    setIsDeleteConfirmOpen(true);
   };
 
-  const renderCategoryIcon = () => {
-    switch (task.category) {
-      case "HOME":
-        return <FaHome className="text-gray-900" />;
-      case "WORK":
-        return <FaSuitcase className="text-gray-900" />;
-      case "OTHER":
-        return <FaQuestion className="text-gray-900" />;
-      default:
-        return null;
-    }
+  const closeDeleteConfirmModal = () => {
+    setIsDeleteConfirmOpen(false);
   };
 
   return (
     <>
       <div
         className={`p-4 rounded shadow-md flex justify-between items-center 
-    ${task.completed ? "bg-green-700" : "bg-white dark:bg-gray-200"}`}
+        ${task.completed ? "bg-green-700" : "bg-white dark:bg-gray-200"}`}
       >
         <div className="flex space-x-4 items-center">
           {task.completed ? (
@@ -75,8 +57,8 @@ export default ({ task, refreshTasks }) => {
               onClick={toggleCompletion}
             />
           )}
-          {renderPriorityIcon()}
-          {renderCategoryIcon()}
+          <PriorityIcon priority={task.priority} />
+          <CategoryIcon category={task.category} />
         </div>
         <h3
           className={`text-lg ${
@@ -88,11 +70,11 @@ export default ({ task, refreshTasks }) => {
         <div className="flex space-x-4 items-center">
           <FaEdit
             onClick={() => setIsEditing(true)}
-            className={`cursor-pointer hover:text-blue-700 ${"text-blue-600"}`}
+            className="cursor-pointer hover:text-yellow-700 text-yellow-500"
           />
           <FaTrash
-            onClick={handleDelete}
-            className={`cursor-pointer hover:text-red-600 ${"text-red-500"}`}
+            onClick={openDeleteConfirmModal}
+            className="cursor-pointer hover:text-red-700 text-red-500"
           />
         </div>
       </div>
@@ -103,6 +85,12 @@ export default ({ task, refreshTasks }) => {
           refreshTasks={refreshTasks}
         />
       )}
+      <ConfirmDeleteModal
+        isOpen={isDeleteConfirmOpen}
+        onClose={closeDeleteConfirmModal}
+        onConfirm={handleDelete}
+        task={task}
+      />
     </>
   );
 };

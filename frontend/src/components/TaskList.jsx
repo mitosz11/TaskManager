@@ -1,22 +1,31 @@
-import { useEffect, useState } from "react";
+import { useContext, useEffect, useState } from "react";
 import { getTasks } from "../services/taskService";
 import CategoryFilter from "./filters/CategoryFilter.jsx";
 import TaskItem from "./TaskItem";
 import PriorityFilter from "./filters/PriorityFilter.jsx";
+import AuthContext from "../contexts/AuthContext.jsx"
 
 export default () => {
   const [tasks, setTasks] = useState([]);
   const [categoryFilter, setCategoryFilter] = useState("All");
   const [priorityFilter, setPriorityFilter] = useState("All");
 
-  useEffect(() => {
-    fetchTasks();
-  }, []);
+ const { user } = useContext(AuthContext); 
 
   const fetchTasks = async () => {
-    const { data } = await getTasks();
-    setTasks(data);
+    try {
+      const response = await getTasks(user.token); 
+      setTasks(response.data);
+    } catch (error) {
+      console.error('Failed to fetch tasks:', error.message);
+    }
   };
+
+  useEffect(() => {
+    if (user) {
+      fetchTasks();
+    }
+  }, [user]);
 
   const sortedTasks = tasks.sort((task1, task2) => {
     if (task1.completed !== task2.completed) {
