@@ -7,7 +7,7 @@ const ConfirmDeleteModal = ({ isOpen, onClose, onConfirm, task }) => {
   return (
     <div className="fixed inset-0 flex items-center justify-center z-50">
       <div
-        className="fixed inset-0 bg-gray-800 opacity-70"
+        className="fixed inset-0 bg-gray-900 opacity-70"
         onClick={onClose}
       ></div>
       <div className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg max-w-md mx-auto relative z-10 border border-gray-300 dark:border-gray-700">

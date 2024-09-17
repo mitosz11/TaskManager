@@ -24,7 +24,7 @@ export default ({ task, onClose, refreshTasks }) => {
 
   return (
     <div
-      className="fixed inset-0 bg-gray-900 bg-opacity-50 flex items-center justify-center z-50"
+      className="fixed inset-0 bg-gray-900 bg-opacity-70 flex items-center justify-center z-50"
       onClick={onClose}
     >
       <div
