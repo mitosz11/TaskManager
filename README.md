@@ -1,18 +1,23 @@
-Task Manager
+# Task Manager
 ============
 
-Description
+## Description
 -----------
 
 The Task Manager is a full-stack application built with **React** (frontend) and **Node.js** (backend) using **PostgreSQL** for database management. It allows users to create, edit, delete, and mark tasks as completed. Tasks can be categorized into "Home", "Work", or "Other", and have different priorities such as "Low", "Medium", or "High". The app also includes dark/light mode switching and filtering capabilities by category, priority, and completion status.
+
+### Authentication
+Users must **register** and **log in** to access the task management features. Each user will have their own task list, ensuring that tasks are private and secure.
 
 The project is structured with **clean code principles**, utilizing **SOLID design patterns** and adhering to the **Twelve-Factor App** methodology for scalable and maintainable software.
 
 This project also supports light/dark theme switching, task filtering by category and priority, and task due dates.
 
-Features
---------
+## Features
+-------- 
 
+-   **User Registration**: Sign up to create an account and manage your tasks.
+-   **User Login**: Securely log in to access your task list.
 -   **Add Tasks**: Create new tasks with a title, category, priority, and due date.
 -   **Edit Tasks**: Update task title and other details using a modal box.
 -   **Delete Tasks**: Remove tasks that are no longer needed.
