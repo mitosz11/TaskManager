@@ -29,7 +29,7 @@ export default ({ task, onClose, refreshTasks }) => {
     >
       <div
         className="bg-white dark:bg-gray-900 p-8 rounded-lg shadow-lg max-w-md mx-auto relative z-10 border border-gray-300 dark:border-gray-700"
-        onClick={(e) => e.stopPropagation()} 
+        onClick={(e) => e.stopPropagation()}
       >
         <h3 className="text-xl text-center font-semibold mb-4">Edit Task</h3>
         <form onSubmit={handleSubmit}>
@@ -47,6 +47,7 @@ export default ({ task, onClose, refreshTasks }) => {
           >
             <option value="HOME">Home</option>
             <option value="WORK">Work</option>
+            <option value="GLOCERIES">Gloceries</option>
             <option value="OTHER">Other</option>
           </select>
           <select

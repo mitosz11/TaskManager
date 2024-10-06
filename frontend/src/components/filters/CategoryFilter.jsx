@@ -9,6 +9,7 @@ export default ({ categoryFilter, setCategoryFilter }) => {
         <option value="All">All Categories</option>
         <option value="HOME">Home</option>
         <option value="WORK">Work</option>
+        <option value="GLOCERIES">Gloceries</option>
         <option value="OTHER">Other</option>
       </select>
     </div>

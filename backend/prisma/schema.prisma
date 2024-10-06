@@ -35,5 +35,6 @@ enum Priority {
 enum Category {
   HOME
   WORK
+  GLOCERIES
   OTHER
 }

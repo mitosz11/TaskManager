@@ -3,7 +3,6 @@ import {
   FcLowPriority,
   FcHighPriority,
 } from "react-icons/fc";
-import { FaSuitcase, FaQuestion, FaHome } from "react-icons/fa";
 
 export const PriorityIcon = ({ priority }) => {
   switch (priority) {
@@ -21,11 +20,13 @@ export const PriorityIcon = ({ priority }) => {
 export const CategoryIcon = ({ category }) => {
   switch (category) {
     case "HOME":
-      return <FaHome className="text-gray-900" />;
+      return <img className="w-8" src="/home.png" alt="Home Icon" />;
     case "WORK":
-      return <FaSuitcase className="text-gray-900" />;
+      return <img className="w-8" src="/work.png" alt="Work Icon" />;
+    case "GLOCERIES":
+      return <img className="w-8" src="/shop.png" alt="Groceries Icon" />;
     case "OTHER":
-      return <FaQuestion className="text-gray-900" />;
+      return <img className="w-8" src="/other.png" alt="Other Icon" />;
     default:
       return null;
   }

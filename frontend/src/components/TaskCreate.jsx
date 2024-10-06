@@ -44,6 +44,7 @@ export default ({ refreshTasks }) => {
         >
           <option value="HOME">Home</option>
           <option value="WORK">Work</option>
+          <option value="GLOCERIES">Gloceries</option>
           <option value="OTHER">Other</option>
         </select>
         <select
