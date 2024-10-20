@@ -10,12 +10,21 @@ export default ({ task, onClose, refreshTasks }) => {
   const [title, setTitle] = useState(task.title);
   const [priority, setPriority] = useState(task.priority);
   const [category, setCategory] = useState(task.category);
+  const [dueDate, setDueDate] = useState(
+    task.dueDate ? new Date(task.dueDate).toISOString().substring(0, 10) : ""
+  );
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await updateTask(
       task.id,
-      { ...task, title, priority, category },
+      {
+        ...task,
+        title,
+        priority,
+        category,
+        dueDate: dueDate ? new Date(dueDate) : null,
+      },
       user.token
     );
     refreshTasks();
@@ -59,6 +68,12 @@ export default ({ task, onClose, refreshTasks }) => {
             <option value="MEDIUM">Medium Priority</option>
             <option value="HIGH">High Priority</option>
           </select>
+          <input
+            type="date"
+            value={dueDate}
+            onChange={(e) => setDueDate(e.target.value)}
+            className="w-full p-2 border border-gray-300 dark:bg-gray-200 rounded mb-4 focus:outline-none focus:ring-blue-600 dark:text-gray-900"
+          />
           <div className="flex justify-between gap-2">
             <button
               type="submit"

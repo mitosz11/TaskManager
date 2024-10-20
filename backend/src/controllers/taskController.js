@@ -43,6 +43,7 @@ const createTask = async (req, res) => {
     title,
     priority = TASK_PRIORITY.LOW,
     category = TASK_CATEGORY.OTHER,
+    dueDate,
   } = req.body;
 
   try {
@@ -51,12 +52,23 @@ const createTask = async (req, res) => {
         .status(HTTP_STATUS_CODES.UNAUTHORIZED)
         .json({ error: "User not authenticated." });
     }
+
+    if (dueDate && new Date(dueDate) < new Date()) {
+      return res
+        .status(HTTP_STATUS_CODES.BAD_REQUEST)
+        .json({ error: "Due date cannot be in the past." });
+    }
+
+    const validDueDate = dueDate ? new Date(dueDate).toISOString() : null;
+
     const task = await taskService.createTask({
       title,
       priority,
       category,
+      dueDate: validDueDate,
       userId: req.user.id,
     });
+
     res.status(HTTP_STATUS_CODES.CREATED).json(task);
   } catch (error) {
     res
@@ -67,14 +79,21 @@ const createTask = async (req, res) => {
 
 const updateTask = async (req, res) => {
   const { id } = req.params;
-  const { title, priority, category, completed } = req.body;
+  const { title, priority, category, completed, dueDate } = req.body;
 
   try {
+    if (dueDate && new Date(dueDate) < new Date()) {
+      return res
+        .status(HTTP_STATUS_CODES.BAD_REQUEST)
+        .json({ error: "Due date cannot be in the past." });
+    }
+
     const updatedTask = await taskService.updateTask(id, {
       title,
       priority,
       category,
       completed,
+      dueDate,
     });
 
     res.json(updatedTask);

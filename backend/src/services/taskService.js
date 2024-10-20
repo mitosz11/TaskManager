@@ -12,13 +12,14 @@ const taskService = {
     }
   },
 
-  createTask: async ({ title, priority, category, userId }) => {
+  createTask: async ({ title, priority, category, dueDate, userId }) => {
     try {
       return await prisma.task.create({
         data: {
           title,
           priority,
           category,
+          dueDate,
           userId,
         },
       });

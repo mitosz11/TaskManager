@@ -3,7 +3,7 @@ import { FiCheckCircle, FiCircle } from "react-icons/fi";
 import { FaEdit, FaTrash } from "react-icons/fa";
 import { PriorityIcon, CategoryIcon } from "../components/TaskIcons";
 import TaskEditModal from "./TaskEditModal";
-import ConfirmDeleteModal from "./ConfirmDeleteModal"; 
+import ConfirmDeleteModal from "./ConfirmDeleteModal";
 import AuthContext from "../contexts/AuthContext";
 import { updateTask, deleteTask } from "../services/taskService";
 
@@ -39,11 +39,19 @@ export default ({ task, refreshTasks }) => {
     setIsDeleteConfirmOpen(false);
   };
 
+  const isOverdue = task.dueDate && new Date(task.dueDate) < new Date();
+
   return (
     <>
       <div
         className={`p-4 rounded shadow-md flex justify-between items-center 
-        ${task.completed ? "bg-green-700" : "bg-white dark:bg-gray-200"}`}
+        ${
+          task.completed
+            ? "bg-green-700"
+            : isOverdue
+            ? "bg-red-600"
+            : "bg-white dark:bg-gray-200"
+        }`}
       >
         <div className="flex space-x-4 items-center">
           {task.completed ? (
@@ -60,18 +68,27 @@ export default ({ task, refreshTasks }) => {
           <PriorityIcon priority={task.priority} />
           <CategoryIcon category={task.category} />
         </div>
-        <h3
-          className={`text-lg ${
-            task.completed ? "text-white" : "text-gray-900"
-          } font-medium`}
-        >
-          {task.title}
-        </h3>
+        <div className="flex flex-col">
+          <h3
+            className={`text-lg ${
+              task.completed ? "text-white" : "text-gray-900"
+            } font-medium`}
+          >
+            {task.title}
+          </h3>
+          <p className="text-gray-900 items-center">
+            {task.dueDate
+              ? new Date(task.dueDate).toLocaleDateString()
+              : "No due date"}
+          </p>
+        </div>
         <div className="flex space-x-4 items-center">
-          <FaEdit
-            onClick={() => setIsEditing(true)}
-            className="cursor-pointer hover:text-yellow-700 text-yellow-500"
-          />
+          {!task.completed && (
+            <FaEdit
+              onClick={() => setIsEditing(true)}
+              className="cursor-pointer hover:text-yellow-700 text-yellow-500"
+            />
+          )}
           <FaTrash
             onClick={openDeleteConfirmModal}
             className="cursor-pointer hover:text-red-700 text-red-500"

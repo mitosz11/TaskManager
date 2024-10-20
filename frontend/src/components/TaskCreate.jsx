@@ -10,13 +10,15 @@ export default ({ refreshTasks }) => {
   const [title, setTitle] = useState("");
   const [priority, setPriority] = useState(TASK_PRIORITY.LOW);
   const [category, setCategory] = useState(TASK_CATEGORY.OTHER);
+  const [dueDate, setDueDate] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    await createTask({ title, priority, category }, user.token);
+    await createTask({ title, priority, category, dueDate }, user.token);
     setTitle("");
     setPriority(TASK_PRIORITY.LOW);
     setCategory(TASK_CATEGORY.OTHER);
+    setDueDate(""); 
     refreshTasks();
   };
 
@@ -44,7 +46,7 @@ export default ({ refreshTasks }) => {
         >
           <option value="HOME">Home</option>
           <option value="WORK">Work</option>
-          <option value="GLOCERIES">Gloceries</option>
+          <option value="GLOCERIES">Groceries</option>
           <option value="OTHER">Other</option>
         </select>
         <select
@@ -56,6 +58,13 @@ export default ({ refreshTasks }) => {
           <option value="MEDIUM">Medium Priority</option>
           <option value="HIGH">High Priority</option>
         </select>
+        <input
+          type="date"
+          min={new Date().toISOString().split("T")[0]}
+          value={dueDate}
+          onChange={(e) => setDueDate(e.target.value)}
+          className="w-full p-2 border rounded mb-4 focus:outline-none focus:ring-2 dark:bg-gray-200 focus:ring-blue-600 dark:text-gray-900"
+        />
         <button
           type="submit"
           className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition-all flex items-center justify-center"
