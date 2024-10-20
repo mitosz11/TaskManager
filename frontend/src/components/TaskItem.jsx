@@ -68,7 +68,9 @@ export default ({ task, refreshTasks }) => {
           <PriorityIcon priority={task.priority} />
           <CategoryIcon category={task.category} />
         </div>
-        <div className="flex flex-col">
+        <div className="flex flex-col items-center">
+          {" "}
+          {/* Középre igazítás */}
           <h3
             className={`text-lg ${
               task.completed ? "text-white" : "text-gray-900"
@@ -76,7 +78,9 @@ export default ({ task, refreshTasks }) => {
           >
             {task.title}
           </h3>
-          <p className="text-gray-900 items-center">
+          <p className="text-gray-900 text-center">
+            {" "}
+            {/* Középre igazítás */}
             {task.dueDate
               ? new Date(task.dueDate).toLocaleDateString()
               : "No due date"}
