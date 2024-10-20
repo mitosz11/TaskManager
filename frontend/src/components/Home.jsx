@@ -43,7 +43,7 @@ const Home = () => {
               className="w-full h-auto object-cover rounded-lg shadow-md"
             />
             <p className="text-center mt-2 text-lg">
-              Step 1: Create your Task List
+              Step 1: Add the task title
             </p>
           </div>
           <div className="px-2">
@@ -68,7 +68,9 @@ const Home = () => {
               alt="Step 4"
               className="w-full h-auto object-cover rounded-lg shadow-md"
             />
-            <p className="text-center mt-2 text-lg">Step 4: Create new task</p>
+            <p className="text-center mt-2 text-lg">
+              Step 4: Add due date if you want
+            </p>
           </div>
           <div className="px-2">
             <img
@@ -76,9 +78,7 @@ const Home = () => {
               alt="Step 5"
               className="w-full h-auto object-cover rounded-lg shadow-md"
             />
-            <p className="text-center mt-2 text-lg">
-              Step 5: Filtering by categories
-            </p>
+            <p className="text-center mt-2 text-lg">Step 5: Create new task</p>
           </div>
           <div className="px-2">
             <img
@@ -87,7 +87,7 @@ const Home = () => {
               className="w-full h-auto object-cover rounded-lg shadow-md"
             />
             <p className="text-center mt-2 text-lg">
-              Step 6: Filtering by priorities
+              Step 6: Filtering by categories
             </p>
           </div>
           <div className="px-2">
@@ -97,7 +97,7 @@ const Home = () => {
               className="w-full h-auto object-cover rounded-lg shadow-md"
             />
             <p className="text-center mt-2 text-lg">
-              Step 7: Mark as completed
+              Step 7: Filtering by priorities
             </p>
           </div>
           <div className="px-2">
@@ -106,7 +106,9 @@ const Home = () => {
               alt="Step 8"
               className="w-full h-auto object-cover rounded-lg shadow-md"
             />
-            <p className="text-center mt-2 text-lg">Step 8: Edit task</p>
+            <p className="text-center mt-2 text-lg">
+              Step 8: Mark as completed
+            </p>
           </div>
           <div className="px-2">
             <img
@@ -114,27 +116,36 @@ const Home = () => {
               alt="Step 9"
               className="w-full h-auto object-cover rounded-lg shadow-md"
             />
-            <p className="text-center mt-2 text-lg">Step 9: Delete task</p>
+            <p className="text-center mt-2 text-lg">Step 9: Edit task</p>
+          </div>
+          <div className="px-2">
+            <img
+              src="/steps/step9.png"
+              alt="Step 9"
+              className="w-full h-auto object-cover rounded-lg shadow-md"
+            />
+            <p className="text-center mt-2 text-lg">Step 10: Delete task</p>
           </div>
         </Slider>
-      <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
-        <h2 className="text-2xl font-bold mb-4">How the Task Manager works</h2>
-        <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-          This application helps you manage your daily tasks. After registering
-          and logging in, you can create your own personalized task list, set
-          priorities, and categorize them.
-        </p>
-        <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
-          You can easily edit or delete tasks, and mark them as completed when
-          you're done. Your task list is saved securely and accessible only to
-          you.
-        </p>
-        <p className="text-lg text-gray-700 dark:text-gray-300">
-          Get started by registering and organizing your tasks efficiently!
-        </p>
+        <div className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center">
+          <h2 className="text-2xl font-bold mb-4">
+            How the Task Manager works
+          </h2>
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+            This application helps you manage your daily tasks. After
+            registering and logging in, you can create your own personalized
+            task list, set priorities, and categorize them.
+          </p>
+          <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
+            You can easily edit or delete tasks, and mark them as completed when
+            you're done. Your task list is saved securely and accessible only to
+            you.
+          </p>
+          <p className="text-lg text-gray-700 dark:text-gray-300">
+            Get started by registering and organizing your tasks efficiently!
+          </p>
+        </div>
       </div>
-      </div>
-
     </div>
   );
 };

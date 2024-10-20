@@ -22,6 +22,7 @@ This project also supports light/dark theme switching, task filtering by categor
 -   **Edit Tasks**: Update task title and other details using a modal box.
 -   **Delete Tasks**: Remove tasks that are no longer needed.
 -   **Mark as Completed**: Mark tasks as completed and visually highlight them.
+-   **Set due date**: Assign specific due dates to tasks, helping you manage deadlines effectively. Visual cues will alert you as deadlines approach.
 -   **Dark/Light Mode**: Toggle between dark and light themes.
 -   **Filter Tasks**: Filter tasks by category and priority.
 -   **Task Sorting**: Automatically sort tasks with the most recent at the top and completed tasks at the bottom.
