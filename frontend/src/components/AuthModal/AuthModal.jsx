@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { FaLock, FaUserPlus } from 'react-icons/fa';
+import { FaSignInAlt, FaUserPlus } from "react-icons/fa";
 import LoginForm from './LoginForm';
 import RegistrationForm from './RegistrationForm';
 import Modal from './Modal';
@@ -25,7 +25,7 @@ export default function AuthModal({ onClose }) {
             }`}
             onClick={() => setActiveTab("login")}
           >
-            <FaLock className="inline-block mr-2" />
+            <FaSignInAlt className="inline-block mr-2" />
             Login
           </div>
           <div

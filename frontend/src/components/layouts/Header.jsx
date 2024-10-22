@@ -41,17 +41,17 @@ export default function Header() {
             {user ? (
               <>
                 <p className="hidden md:block text-gray-800 dark:text-gray-300 text-xl">
-                  Hello {user.firstName}
+                  Hello <strong>{user.firstName}</strong>
                 </p>
                 <MdLogout
                   onClick={handleLogout}
-                  className="text-red-600 sm:text-3xl text-xl cursor-pointer transition-colors duration-300 hover:text-red-800 dark:hover:text-red-400"
+                  className="text-red-600 text-3xl cursor-pointer transition-colors duration-300 hover:text-red-800 dark:hover:text-red-400"
                 />
               </>
             ) : (
               <MdLogin
                 onClick={() => setIsModalOpen(true)}
-                className="text-green-600 sm:text-3xl text-xl cursor-pointer transition-colors duration-300 hover:text-green-800 dark:hover:text-green-400"
+                className="text-green-600 text-3xl cursor-pointer transition-colors duration-300 hover:text-green-800 dark:hover:text-green-400"
               />
             )}
           </div>

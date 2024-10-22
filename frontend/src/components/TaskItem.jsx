@@ -49,7 +49,7 @@ export default ({ task, refreshTasks }) => {
           task.completed
             ? "bg-green-700"
             : isOverdue
-            ? "bg-red-600"
+            ? "bg-red-300"
             : "bg-white dark:bg-gray-200"
         }`}
       >
@@ -70,7 +70,6 @@ export default ({ task, refreshTasks }) => {
         </div>
         <div className="flex flex-col items-center">
           {" "}
-          {/* Középre igazítás */}
           <h3
             className={`text-lg ${
               task.completed ? "text-white" : "text-gray-900"
@@ -80,7 +79,6 @@ export default ({ task, refreshTasks }) => {
           </h3>
           <p className="text-gray-900 text-center">
             {" "}
-            {/* Középre igazítás */}
             {task.dueDate
               ? new Date(task.dueDate).toLocaleDateString()
               : "No due date"}
