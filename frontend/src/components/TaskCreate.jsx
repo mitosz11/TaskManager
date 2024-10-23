@@ -77,6 +77,7 @@ export default ({ refreshTasks }) => {
                 name="dueDate"
                 min={new Date().toISOString().split("T")[0]}
                 className="w-full p-2 border rounded focus:outline-none focus:ring-2 dark:bg-gray-200 focus:ring-blue-600 dark:text-gray-900"
+                placeholder="mm/dd/yyyy"
               />
             </div>
             <button
