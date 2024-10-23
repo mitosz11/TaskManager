@@ -13,8 +13,8 @@ const router = createBrowserRouter([
     path: "/",
     element: <Layout />,
     children: [
-      { path: "", element: <Home /> },
-      { path: "/taskManager", element: <TaskManager /> },
+      { path: "/", element: <Home /> },
+      { path: "/taskmanager", element: <TaskManager /> },
     ],
   },
 ]);
