@@ -38,7 +38,7 @@ export default ({ refreshTasks }) => {
             <div className="mb-4">
               <label
                 htmlFor="title"
-                className="text-lg  font-bold dark:text-gray-300 text-gray-600"
+                className="text-md  font-bold dark:text-gray-300 text-gray-600"
               >
                 Title
               </label>
@@ -57,7 +57,7 @@ export default ({ refreshTasks }) => {
             <div className="mb-4">
               <label
                 htmlFor="category"
-                className="text-lg  font-bold dark:text-gray-300 text-gray-600"
+                className="text-md  font-bold dark:text-gray-300 text-gray-600"
               >
                 Select category
               </label>
@@ -76,7 +76,7 @@ export default ({ refreshTasks }) => {
             <div className="mb-4">
               <label
                 htmlFor="category"
-                className="text-lg  font-bold dark:text-gray-300 text-gray-600"
+                className="text-md  font-bold dark:text-gray-300 text-gray-600"
               >
                 Select priority
               </label>
@@ -93,7 +93,7 @@ export default ({ refreshTasks }) => {
             <div className="mb-4">
               <label
                 htmlFor="category"
-                className="text-lg  font-bold dark:text-gray-300 text-gray-600"
+                className="text-md  font-bold dark:text-gray-300 text-gray-600"
               >
                 Due date (optional)
               </label>
