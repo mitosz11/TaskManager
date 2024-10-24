@@ -75,12 +75,13 @@ export default ({ refreshTasks }) => {
             </div>
             <div className="mb-4">
               <label
-                htmlFor="category"
+                htmlFor="priority"
                 className="text-md  font-bold dark:text-gray-300 text-gray-600"
               >
                 Select priority
               </label>
               <Field
+                id="priority"
                 as="select"
                 name="priority"
                 className="w-full p-2 border rounded focus:outline-none focus:ring-2 dark:bg-gray-200 focus:ring-blue-600 dark:text-gray-900"
@@ -92,17 +93,17 @@ export default ({ refreshTasks }) => {
             </div>
             <div className="mb-4">
               <label
-                htmlFor="category"
+                htmlFor="duedate"
                 className="text-md  font-bold dark:text-gray-300 text-gray-600"
               >
                 Due date (optional)
               </label>
               <Field
+                id="duedate"
                 type="date"
                 name="dueDate"
                 min={new Date().toISOString().split("T")[0]}
                 className="w-full p-2 border rounded focus:outline-none focus:ring-2 dark:bg-gray-200 focus:ring-blue-600 dark:text-gray-900"
-                placeholder="mm/dd/yyyy"
               />
             </div>
             <button
