@@ -31,25 +31,38 @@ export default ({ refreshTasks }) => {
         onSubmit={handleSubmit}
       >
         {({ values, handleChange }) => (
-          <Form className="bg-white dark:bg-gray-500 p-6 rounded shadow-lg w-full">
+          <Form className="bg-gray-100 dark:bg-gray-500 p-6 rounded shadow-lg w-full">
             <h2 className="text-2xl font-bold mb-4 text-center text-gray-900">
               Add New Task
             </h2>
             <div className="mb-4">
+              <label
+                htmlFor="title"
+                className="text-lg  font-bold dark:text-gray-300 text-gray-600"
+              >
+                Title
+              </label>
               <Field
+                id="title"
                 type="text"
                 name="title"
-                placeholder="Enter task title"
                 className="w-full p-2 border rounded focus:outline-none focus:ring-2 dark:bg-gray-200 focus:ring-blue-600 dark:text-gray-900"
               />
               <ErrorMessage
                 name="title"
                 component="div"
-                className="text-red-500 text-sm mt-1"
+                className="text-red-600 text-md font-bold mt-1"
               />
             </div>
             <div className="mb-4">
+              <label
+                htmlFor="category"
+                className="text-lg  font-bold dark:text-gray-300 text-gray-600"
+              >
+                Select category
+              </label>
               <Field
+                id="category"
                 as="select"
                 name="category"
                 className="w-full p-2 border rounded focus:outline-none focus:ring-2 dark:bg-gray-200 focus:ring-blue-600 dark:text-gray-900"
@@ -61,6 +74,12 @@ export default ({ refreshTasks }) => {
               </Field>
             </div>
             <div className="mb-4">
+              <label
+                htmlFor="category"
+                className="text-lg  font-bold dark:text-gray-300 text-gray-600"
+              >
+                Select priority
+              </label>
               <Field
                 as="select"
                 name="priority"
@@ -72,6 +91,12 @@ export default ({ refreshTasks }) => {
               </Field>
             </div>
             <div className="mb-4">
+              <label
+                htmlFor="category"
+                className="text-lg  font-bold dark:text-gray-300 text-gray-600"
+              >
+                Due date (optional)
+              </label>
               <Field
                 type="date"
                 name="dueDate"
