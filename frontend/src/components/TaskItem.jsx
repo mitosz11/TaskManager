@@ -39,7 +39,10 @@ export default ({ task, refreshTasks }) => {
     setIsDeleteConfirmOpen(false);
   };
 
-  const isOverdue = task.dueDate && new Date(task.dueDate) < new Date();
+  const isOverdue =
+    task.dueDate &&
+    new Date(task.dueDate).setHours(0, 0, 0, 0) <
+      new Date().setHours(0, 0, 0, 0);
 
   return (
     <>
