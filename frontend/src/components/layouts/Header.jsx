@@ -19,7 +19,9 @@ export default function Header() {
     <>
       <header className="bg-white dark:bg-gray-800 shadow-md py-4 px-4">
         <div className="container mx-auto flex items-center justify-between">
+          <Link to="/">
           <img className="md:w-32 w-14" src="/todo.png" alt="todo" />
+          </Link>
           <nav className="flex flex-grow justify-center items-center uppercase font-bold">
             <Link
               to="/"
