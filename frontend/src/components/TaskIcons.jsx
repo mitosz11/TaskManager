@@ -24,7 +24,7 @@ export const CategoryIcon = ({ category }) => {
     case "WORK":
       return <img className="w-8" src="/work.png" alt="Work Icon" />;
     case "GLOCERIES":
-      return <img className="w-8" src="/shop.png" alt="Groceries Icon" />;
+      return <img className="w-8" src="/shop.png" alt="Gloceries Icon" />;
     case "OTHER":
       return <img className="w-8" src="/other.png" alt="Other Icon" />;
     default:

@@ -68,7 +68,7 @@ const TaskManagerAccordion = () => {
         <p className="mb-2">
           The <strong>task addition</strong> feature allows you to create new
           tasks quickly and easily. You can assign a <strong>title</strong>, set
-          a <strong>category</strong> (such as personal, work, or groceries),
+          a <strong>category</strong> (such as personal, work, or gloceries),
           select a <strong>priority</strong> level (low, normal, high), and
           choose a <strong>due date</strong>.
         </p>
